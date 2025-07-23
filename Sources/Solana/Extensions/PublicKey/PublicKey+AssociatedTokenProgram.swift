@@ -48,7 +48,7 @@ extension PublicKey {
         // construct data
         var data = Data()
         for seed in seeds {
-            if seed.bytes.count > maxSeedLength {
+            if seed.uInt8Array.count > maxSeedLength {
                 return .failure(SolanaError.other("Max seed length exceeded"))
             }
             data.append(seed)
@@ -84,7 +84,7 @@ extension PublicKey {
             den6 = NaclLowLevel.gf()
 
         NaclLowLevel.set25519(&r[2], gf1)
-        NaclLowLevel.unpack25519(&r[1], publicKeyBytes.bytes)
+        NaclLowLevel.unpack25519(&r[1], publicKeyBytes.uInt8Array)
         NaclLowLevel.S(&num, r[1])
         NaclLowLevel.M(&den, num, NaclLowLevel.D)
         NaclLowLevel.Z(&num, num, r[2])

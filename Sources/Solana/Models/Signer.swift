@@ -72,7 +72,7 @@ public struct HotAccount: Codable, Hashable, Signer {
         guard let newKey = PublicKey(data: keys.publicKey) else {
             return  nil
         }
-        guard let phrase = try? Mnemonic.toMnemonic(secretKey.bytes).get() else {
+        guard let phrase = try? Mnemonic.toMnemonic(secretKey.uInt8Array).get() else {
             return  nil
         }
         self.publicKey = newKey

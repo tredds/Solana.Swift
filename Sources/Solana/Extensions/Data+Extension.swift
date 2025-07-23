@@ -16,6 +16,10 @@ extension Data {
     }
 
     public func toHexString() -> String {
-        self.bytes.toHexString()
+        self.uInt8Array.toHexString()
+    }
+    
+    public var uInt8Array: [UInt8] {
+        [UInt8](self)
     }
 }

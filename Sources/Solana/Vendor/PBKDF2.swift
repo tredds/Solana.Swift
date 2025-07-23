@@ -11,7 +11,7 @@ func pbkdf2(hash: CCPBKDFAlgorithm, password: String, salt: Data, keyByteCount: 
             CCPBKDFAlgorithm(kCCPBKDF2),
             password,
             passwordData.count,
-            salt.bytes,
+            salt.uInt8Array,
             salt.count,
             hash,
             UInt32(rounds),

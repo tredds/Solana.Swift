@@ -28,7 +28,7 @@ public struct Ed25519HDKey {
     private static func CKDPriv(keys: Keys, index: UInt32) -> Result<Keys, Error> {
         var bytes = [UInt8]()
         bytes.append(UInt8(0))
-        bytes += keys.key.bytes
+        bytes += keys.key.uInt8Array
         bytes += index.edBytes
         let data = Data(bytes)
 
